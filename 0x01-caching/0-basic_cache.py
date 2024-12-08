@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-
+"""
+A Basic Cache
+"""
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
     """
-    BasicCache class
+    BasicCache class that inherits from base_caching system
     """
     def __init__(self):
         """
