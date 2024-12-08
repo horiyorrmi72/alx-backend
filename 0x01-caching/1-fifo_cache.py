@@ -7,7 +7,7 @@ from base_caching import BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-    inherits from BaseCaching 
+    inherits from BaseCaching
     """
     def __init__(self):
         """
@@ -18,13 +18,14 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """
-
+        Add an item to the cache using FIFO approach
         """
         if key and item:
             self.cache_data[key] = item
             self.cache_data_list.append(key)
         if len(self.cache_data_list) > BaseCaching.MAX_ITEMS:
             discardedData = self.cache_data_list.pop(0)
+            del self.cache_data[discardedData]
             print("DISCARD: {}".format(discardedData))
 
     def get(self, key):
